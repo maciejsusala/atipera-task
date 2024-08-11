@@ -20,7 +20,7 @@ public class GitHubApiController {
     @PostMapping("/users/repos")
     public ResponseEntity<List<RepositoryResponseDTO>> getReposNotFork(
             @RequestBody RepositoryRequestDTO repositoryRequest,
-            @RequestHeader(value = "Accept", required = true) String acceptHeader) {
+            @RequestHeader(value = "Accept") String acceptHeader) {
         List<RepositoryResponseDTO> nonForkRepos = gitHubService
                 .getNonForkRepositories(repositoryRequest.username());
         return ResponseEntity.ok(nonForkRepos);
