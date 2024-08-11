@@ -6,4 +6,5 @@ public record RepositoryResponseDTO(
         String name,
         String ownerLogin,
         List<BranchDTO> branches
-) {}
+) {
+}

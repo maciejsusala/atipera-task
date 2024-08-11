@@ -10,5 +10,6 @@ public record RepositoryDTO(
         @JsonProperty("fork") boolean isFork,
         List<BranchDTO> branches
 ) {
-    public record OwnerDTO(String login) {}
+    public record OwnerDTO(String login) {
+    }
 }

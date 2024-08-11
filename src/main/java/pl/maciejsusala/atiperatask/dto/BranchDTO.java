@@ -10,5 +10,6 @@ public record BranchDTO(
         this(name, new CommitDTO(sha));
     }
 
-    public record CommitDTO(String sha) {}
+    public record CommitDTO(String sha) {
+    }
 }
