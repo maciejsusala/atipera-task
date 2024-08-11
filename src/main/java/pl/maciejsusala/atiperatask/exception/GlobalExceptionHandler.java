@@ -16,4 +16,6 @@ public class GlobalExceptionHandler {
                 HttpStatus.valueOf(ex.status())
         );
     }
+
+
 }
