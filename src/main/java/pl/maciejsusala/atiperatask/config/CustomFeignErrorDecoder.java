@@ -11,6 +11,9 @@ public class CustomFeignErrorDecoder implements ErrorDecoder {
         if (response.status() == 404) {
             return new CustomFeignException(response.status(), "Given user don't exist");
         }
+        if (response.status() == 403) {
+            return new CustomFeignException(response.status(), "Too many requests. Try again in 10 minutes");
+        }
         return new CustomFeignException(response.status(), response.reason());
     }
 }
