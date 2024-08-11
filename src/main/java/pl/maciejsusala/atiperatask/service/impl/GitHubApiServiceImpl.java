@@ -5,18 +5,29 @@ import pl.maciejsusala.atiperatask.client.GitHubApiClient;
 import pl.maciejsusala.atiperatask.dto.BranchDTO;
 import pl.maciejsusala.atiperatask.dto.RepositoryDTO;
 import pl.maciejsusala.atiperatask.dto.RepositoryResponseDTO;
+import pl.maciejsusala.atiperatask.service.GitHubApiService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Service implementation for interacting with the GitHub API.
+ */
 @Service
-public class GitHubApiServiceImpl {
+public class GitHubApiServiceImpl implements GitHubApiService {
     private final GitHubApiClient gitHubApiClient;
 
     public GitHubApiServiceImpl(GitHubApiClient gitHubApiClient) {
         this.gitHubApiClient = gitHubApiClient;
     }
 
+    /**
+     * Retrieves a list of non-fork repositories for a given user.
+     *
+     * @param username the GitHub username
+     * @return a list of {@link RepositoryResponseDTO} objects representing non-fork repositories
+     */
+    @Override
     public List<RepositoryResponseDTO> getNonForkRepositories(String username) {
         List<RepositoryDTO> repositories = gitHubApiClient.getRepositories(username);
 
